@@ -127,7 +127,11 @@ public class signin extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
         jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, -1, -1));
         jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 170, 10));
+
+        txtContra.setBorder(null);
         jPanel1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 160, 40));
+
+        txtContraConfi.setBorder(null);
         jPanel1.add(txtContraConfi, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 160, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -155,18 +159,21 @@ public class signin extends javax.swing.JFrame {
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
       String nombre =   txtNombre.getText();
       String edad = txtEdad.getText();
+       String confi = txtContraConfi.getText();
       String contra = txtContra.getText();
-      String confi = txtContraConfi.getText();
+     
       String correo = txtCorreo.getText();
-      if (contra == confi ){
-          LOGIN conexion = new LOGIN();
+      LOGIN conexion = new LOGIN();
+      if (contra.contentEquals(confi) ){
+          
         
         try {
 
             conexion.Conectar();
             PreparedStatement ps;
             
-            ps = conexion.conexion.prepareStatement("INSERT INTO Usuarios(nombre,correo,contraseña,edad) VALUES (?,?,?,?)");
+            ps = conexion.conexion.prepareStatement("INSERT INTO usuarios(id,nombre,edad,contraseña,correo) VALUES (?,?,?,?)");
+            
             ps.setString(1, nombre);
             ps.setString(2, correo);
             ps.setString(3, contra);

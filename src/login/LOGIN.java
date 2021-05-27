@@ -16,7 +16,7 @@ public class LOGIN {
  
         Connection conexion = null;
         Integer resultado = 0;
-        String url = "dbc:sqlserver://WIN7:1433;" + "database=login;" + "user=sa;" + "password=perrogato2;";
+        String url = "jdbc:sqlserver://WIN7:1433;" + "database=login;" + "user=sa;" + "password=perrogato2;";
                 public void Conectar(){
                     try{
                         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
