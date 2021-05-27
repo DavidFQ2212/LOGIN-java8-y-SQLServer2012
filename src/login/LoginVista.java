@@ -1,4 +1,4 @@
-//<div>Iconos diseñados por <a href="https://www.flaticon.es/autores/dave-gandy" title="Dave Gandy">Dave Gandy</a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a></div>
+
 package login;
 
 /**
@@ -6,6 +6,12 @@ package login;
  * @author david
  */
 import AppPackage.AnimationClass;
+import aplicacion.aplicacion;
+import java.awt.Desktop;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class LoginVista extends javax.swing.JFrame {
 
     /**
@@ -26,21 +32,26 @@ public class LoginVista extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel9 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         inicio = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtUser = new javax.swing.JTextField();
+        txtpassword = new javax.swing.JPasswordField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnEntrar = new javax.swing.JButton();
         internetjlb = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        register = new javax.swing.JLabel();
 
         jLabel9.setText("jLabel9");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -64,18 +75,20 @@ public class LoginVista extends javax.swing.JFrame {
         jLabel3.setText("contraseña:");
         inicio.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, -1, -1));
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
-        jTextField1.setBorder(null);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtUser.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
+        txtUser.setBorder(null);
+        txtUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtUserActionPerformed(evt);
             }
         });
-        inicio.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 190, 40));
+        inicio.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 190, 40));
 
-        jPasswordField1.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
-        jPasswordField1.setBorder(null);
-        inicio.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 190, 40));
+        txtpassword.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
+        txtpassword.setBorder(null);
+        txtpassword.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        inicio.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 190, 40));
         inicio.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 220, 20));
         inicio.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 220, 20));
 
@@ -94,18 +107,43 @@ public class LoginVista extends javax.swing.JFrame {
         });
         inicio.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 40));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Enter_OFF.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Enter_ON.png"))); // NOI18N
-        jButton1.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Enter_ON.png"))); // NOI18N
-        jButton1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Enter_ON.png"))); // NOI18N
-        inicio.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 130, 30));
+        btnEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Enter_OFF.png"))); // NOI18N
+        btnEntrar.setBorder(null);
+        btnEntrar.setBorderPainted(false);
+        btnEntrar.setContentAreaFilled(false);
+        btnEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEntrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Enter_ON.png"))); // NOI18N
+        btnEntrar.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Enter_ON.png"))); // NOI18N
+        btnEntrar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Enter_ON.png"))); // NOI18N
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarActionPerformed(evt);
+            }
+        });
+        inicio.add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 130, 30));
 
         internetjlb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Globe_32px.png"))); // NOI18N
+        internetjlb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        internetjlb.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                internetjlbMouseClicked(evt);
+            }
+        });
         inicio.add(internetjlb, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 50, 30, 40));
+
+        jLabel7.setText("Aun no tienes una cuenta?");
+        inicio.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, -1, -1));
+
+        register.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        register.setForeground(new java.awt.Color(255, 153, 51));
+        register.setText("registrarse");
+        register.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        register.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                registerMouseClicked(evt);
+            }
+        });
+        inicio.add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -115,15 +153,15 @@ public class LoginVista extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(inicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(inicio, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
+       
+    }//GEN-LAST:event_txtUserActionPerformed
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         AnimationClass internet = new AnimationClass();
@@ -133,6 +171,39 @@ public class LoginVista extends javax.swing.JFrame {
         internet.jLabelXRight(-40,10, 10, 5,internetjlb);
         internet.jLabelXLeft(10,-40, 10, 5,internetjlb);
     }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void registerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerMouseClicked
+       signin reigisterV = new signin();
+       reigisterV.setVisible(true);
+       this.setVisible(false);
+       
+    }//GEN-LAST:event_registerMouseClicked
+
+    private void internetjlbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_internetjlbMouseClicked
+ 
+    }//GEN-LAST:event_internetjlbMouseClicked
+
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+   String user = txtUser.getText();
+   String pass = txtpassword.getText();
+   LOGIN conexion = new LOGIN();
+   conexion.Conectar();
+   int inicio =conexion.Login(user, pass);
+   if(inicio == 1){
+       aplicacion ver = new aplicacion();
+       ver.setVisible(true);
+       this.setVisible(false);
+       
+   }else{
+       txtUser.setText("");
+       txtpassword.setText("");
+       
+   }
+   
+   
+  
+        
+    }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,19 +241,22 @@ public class LoginVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEntrar;
     private javax.swing.JPanel inicio;
     private javax.swing.JLabel internetjlb;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel register;
+    private javax.swing.JTextField txtUser;
+    private javax.swing.JPasswordField txtpassword;
     // End of variables declaration//GEN-END:variables
 }
